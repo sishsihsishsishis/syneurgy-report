@@ -1,0 +1,39 @@
+{
+  "name": "mandrill_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon server.js -e ejs,js,css,html,jpg,png,scss"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]s?$": "babel-jest"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^7.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsdom": "^22.1.0",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.0.1",
+    "sharp": "^0.32.5",
+    "nodemailer": "^6.9.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.17",
+    "@babel/preset-env": "^7.22.15",
+    "@jest/globals": "^29.7.0",
+    "babel-jest": "^29.7.0",
+    "chai": "^4.3.8",
+    "jest": "^29.7.0",
+    "mocha": "^10.2.0",
+    "nodemailer": "^6.9.5"
+  }
+}

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <style>
+      @media only screen and (max-width: 759px) {
+        .responsive-flex {
+          flex-direction: column;
+        }
+      }
+    </style> -->
+    <style type="text/css">
+      :root {
+        color-scheme: light dark;
+
+        supported-color-schemes: light dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        .body {
+          background-color: #1b212f !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    style="
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
+      background-color: #1b212f;
+      color: white;
+      max-width: 800px;
+      /* center all items */
+      margin: 0 auto;
+      padding: 0 40px;
+    "
+  >
+    <table
+      style="
+        width: 100%;
+        background-color: #1b212f;
+        border-collapse: collapse;
+        border-spacing: 0;
+      "
+    >
+      <table
+        style="
+          width: 300px;
+          height: 50px;
+          margin-top: 50px;
+          margin-left: 25px;
+          border-collapse: collapse;
+        "
+      >
+        <tr>
+          <td style="vertical-align: top; padding: 0; width: 30px">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 2.71303C10.1558 2.71303 8.66085 4.208 8.66085 6.05214C8.66085 6.22346 8.67375 6.39176 8.69863 6.55613C8.69869 6.55616 8.69874 6.55618 8.6988 6.55621C7.82398 7.08789 7.0875 7.82452 6.55599 8.69945C6.55594 8.69934 6.55588 8.69923 6.55583 8.69913C6.39155 8.67427 6.22335 8.66138 6.05214 8.66138C4.208 8.66138 2.71303 10.1564 2.71303 12.0005C2.71303 13.8446 4.208 15.3396 6.05214 15.3396C6.22316 15.3396 6.39117 15.3267 6.55527 15.3019C6.55559 15.3013 6.5559 15.3006 6.55622 15.3C7.08807 16.1753 7.82511 16.9122 8.70057 17.4439C8.69987 17.4443 8.69916 17.4446 8.69846 17.4449C8.67369 17.6089 8.66085 17.7769 8.66085 17.9478C8.66085 19.7919 10.1558 21.2869 12 21.2869C13.8441 21.2869 15.3391 19.7919 15.3391 17.9478C15.3391 17.7769 15.3262 17.6089 15.3015 17.4449C15.3008 17.4446 15.3001 17.4443 15.2994 17.4439C16.1748 16.9122 16.9118 16.1753 17.4437 15.3C17.444 15.3006 17.4443 15.3013 17.4446 15.3019C17.6087 15.3267 17.7768 15.3396 17.9478 15.3396C19.7919 15.3396 21.2869 13.8446 21.2869 12.0005C21.2869 10.1564 19.7919 8.66138 17.9478 8.66138C17.7766 8.66138 17.6084 8.67427 17.4441 8.69913C17.444 8.69923 17.444 8.69933 17.4439 8.69943C16.9124 7.82451 16.1759 7.08788 15.3011 6.55621C15.3012 6.55618 15.3012 6.55615 15.3013 6.55613C15.3262 6.39176 15.3391 6.22346 15.3391 6.05214C15.3391 4.208 13.8441 2.71303 12 2.71303ZM12 23.9999C15.3077 23.9999 17.9957 21.3463 18.0512 18.0518C21.346 17.9965 23.9999 15.3084 23.9999 12.0005C23.9999 8.69254 21.346 6.00445 18.0512 5.94922C17.9963 2.65419 15.3081 0 12 0C8.69183 0 6.00362 2.65419 5.94868 5.94922C2.6539 6.00445 0 8.69254 0 12.0005C0 15.3084 2.65391 17.9965 5.94869 18.0518C6.0042 21.3463 8.69219 23.9999 12 23.9999Z"
+                fill="white"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 8.66029C10.1559 8.66029 8.6609 10.1553 8.6609 11.9994C8.6609 13.8435 10.1559 15.3385 12 15.3385C13.8442 15.3385 15.3391 13.8435 15.3391 11.9994C15.3391 10.1553 13.8442 8.66029 12 8.66029ZM5.94788 11.9994C5.94788 8.6569 8.65751 5.94727 12 5.94727C15.3425 5.94727 18.0522 8.6569 18.0522 11.9994C18.0522 15.3419 15.3425 18.0515 12 18.0515C8.65751 18.0515 5.94788 15.3419 5.94788 11.9994Z"
+                fill="white"
+              />
+            </svg>
+          </td>
+          <td style="vertical-align: top; padding-left: 10px">
+            <p
+              style="
+                color: white;
+                padding: 0;
+                margin: 0;
+                font-size: 20px;
+                font-weight: 600;
+              "
+            >
+              Syneurgy
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <hr style="border: 0.5px solid #323c51; margin: 5px 0" />
+      <table style="width: 100%; border-collapse: collapse">
+        <tr>
+          <td style="font-size: 30px; padding: 0">
+            Dear <span id="user-name" style="font-weight: 600">Esther H.</span>
+          </td>
+        </tr>
+        <tr>
+          <!-- <td style="font-size: 20px; padding: 0">
+            Your team
+            <span style="color: #00a5ff">Design and development</span>
+            finished the event
+            <span style="color: #00a5ff">Wednesday Stand Up Meeting</span>
+            which was <span style="color: #00a5ff">32:24:07</span>
+            minutes long and involved
+            <span style="color: #00a5ff">5 participants</span>.
+          </td> -->
+
+          <td style="font-size: 20px; padding: 0">
+            Your team
+            <span id="team-name" style="color: #00a5ff"
+              >Design and development</span
+            >
+            finished the event
+            <span style="color: #00a5ff">Wednesday Stand Up Meeting</span>
+            .
+          </td>
+        </tr>
+      </table>
+
+      <hr style="border: 0.5px solid #323c51; margin: 30px 0" />
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <!-- Left Side -->
+          <td width="50%" valign="top" id="chart1">
+            <!-- Placeholder for the chart. This will be replaced by your JS. -->
+            <div id="chart1"></div>
+          </td>
+
+          <!-- Right Side -->
+          <td
+            width="50%"
+            valign="top"
+            style="border-left: 1px solid #76fd3f; padding-left: 15px"
+          >
+            <span
+              ><span id="changedScore">↗ 1.9% compared to the last.</span></span
+            >
+            <br /><br />
+            <span style="font-size: 30px"
+              >Team <span style="color: #76fd3f">synchrony</span> was
+              <span style="color: #76fd3f"
+                ><span id="global-score">37</span></span
+              >.</span
+            ><br /><br />
+            A excellent score for a creative session!<br /><br />
+            <div
+              style="
+                border-top: 0.5px solid #323c51;
+                display: block;
+                padding-top: 10px;
+              "
+            >
+              Engagement:
+              <span>
+                <span id="engagement" style="color: #61ff8d">↗ 5%</span><br />
+              </span>
+              Alignment:
+              <span
+                ><span id="alignment" style="color: #fc3400">↗3%</span><br
+              /></span>
+              Agency:
+              <span>
+                <span id="agency" style="color: #fdd33f">↗ 3%</span><br />
+              </span>
+              Stress:
+              <span>
+                <span id="stress" style="color: #fdd33f">↗ 3%</span><br />
+              </span>
+              Burnout:
+              <span>
+                <span id="burnout" style="color: #61ff8d">↗ 3%</span>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <hr style="border: 0.5px solid #323c51; margin: 30px 0" />
+      <div style="display: flex; gap: 20px">
+        <div style="flex: 1; font-size: 30px">
+          The prominent sentiment of the meeting was
+          <span style="color: #61ff8d">positive</span>.
+        </div>
+      </div>
+      <table
+        width="100%"
+        border="0"
+        cellspacing="0"
+        cellpadding="0"
+        style="margin-top: 20px"
+      >
+        <tr>
+          <td width="50%" valign="top" style="padding-right: 10px">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                background-color: #262e40;
+                border-radius: 15px;
+                padding: 5px;
+                justify-content: space-evenly;
+              "
+            >
+              <div
+                id="chart2"
+                style="display: flex; justify-content: center"
+              ></div>
+            </div>
+          </td>
+
+          <!-- Team Performance Column -->
+          <td width="50%" valign="top" style="padding-left: 10px">
+            <table
+              width="100%"
+              border="0"
+              cellspacing="0"
+              cellpadding="0"
+              style="background-color: #262e40; border-radius: 15px"
+            >
+              <tr>
+                <td style="padding: 20px">
+                  <p style="color: #ffffff">Team performance</p>
+                  <!-- Brain Row -->
+                  <table
+                    width="100%"
+                    border="0"
+                    cellspacing="0"
+                    cellpadding="0"
+                    style="margin: 10px 0"
+                  >
+                    <tr>
+                      <td style="color: #a4a7af; width: 90%">Brain</td>
+                      <td style="color: #ffffff; width: 10%">
+                        <span id="brain-text">75%</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <div
+                          style="
+                            width: 100%;
+                            height: 5px;
+                            background-color: #323c51;
+                            border-radius: 15px;
+                          "
+                        >
+                          <div
+                            id="brain-meter"
+                            style="
+                              width: 75%;
+                              height: 5px;
+                              background-color: #fddc65;
+                            "
+                          ></div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Body Row -->
+                  <table
+                    width="100%"
+                    border="0"
+                    cellspacing="0"
+                    cellpadding="0"
+                    style="margin: 10px 0"
+                  >
+                    <tr>
+                      <td style="color: #a4a7af; width: 90%">Body</td>
+                      <td style="color: #ffffff; width: 10%">
+                        <span id="body-text">20%</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <div
+                          style="
+                            width: 100%;
+                            height: 5px;
+                            background-color: #323c51;
+                            border-radius: 15px;
+                          "
+                        >
+                          <div
+                            id="body-meter"
+                            style="
+                              width: 20%;
+                              height: 5px;
+                              background-color: #44c9b1;
+                            "
+                          ></div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Behaviour Row -->
+                  <table
+                    width="100%"
+                    border="0"
+                    cellspacing="0"
+                    cellpadding="0"
+                    style="margin: 10px 0"
+                  >
+                    <tr>
+                      <td style="color: #a4a7af; width: 90%">Behaviour</td>
+                      <td style="color: #ffffff; width: 10%">
+                        <span id="behavior-text">5%</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <div
+                          style="
+                            width: 100%;
+                            height: 5px;
+                            background-color: #323c51;
+                            border-radius: 15px;
+                          "
+                        >
+                          <div
+                            id="behavior-meter"
+                            style="
+                              width: 5%;
+                              height: 5px;
+                              background-color: #2e6dff;
+                            "
+                          ></div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <hr style="border: 0.5px solid #323c51; margin: 30px 0" />
+      <div style="display: flex; justify-content: center; padding-bottom: 20px">
+        <a
+          id="meeting-button"
+          href="https://syneurgy.io/meeting-details"
+          style="
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: solid 1px white;
+            border-radius: 10px;
+          "
+          >Go to the Meeting</a
+        >
+      </div>
+    </table>
+  </body>
+</html>

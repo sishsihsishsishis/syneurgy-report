@@ -1,8 +1,7 @@
 import express from 'express';
 import renderChart from './renderD3.js';
-import nodemailer from 'nodemailer';
 import 'dotenv/config.js';
-
+import Postmark from 'postmark';
 const app = express();
 const PORT = 3000;
 app.get('/', (req, res) => {
@@ -18,48 +17,43 @@ app.get('/chart', async (req, res) => {
 
   // console log the rendered HTML
   res.send(`<html><body>${renderedHTML}</body></html>`);
+  const finalHTML = renderedHTML.replace(
+    /<img id="chart1" src="data:image\/png;charset=utf-8;base64,[^"]+"/,
+    '<img src="cid:chart1"'
+  ).replace(
+    /<img id="chart2" src="data:image\/png;charset=utf-8;base64,[^"]+"/,
+    '<img src="cid:chart2"'
+  );
+  const attachments = [{
+    "Name": "image.jpg",
+    "Content": chart1PNG.toString('base64'),
+    "ContentType": "image/png",
+    "ContentID": 'cid:chart1'
+  },
+  {
+    "Name": "image2.jpg",
+    "Content": chart2PNG.toString('base64'),
+    "ContentType": "image/png",
+    "ContentID": 'cid:chart2'
+  }
 
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASSWORD,
-    },
-  });
-
-  var mailOptions = {
-    from: process.env.EMAIL,
-    to: email,
-    subject: 'Syneurgy just finished processing a meeting.',
-    html: renderedHTML
-      .replace(
-        /<img id="chart1" src="data:image\/png;charset=utf-8;base64,[^"]+"/,
-        '<img src="cid:chart1"'
-      )
-      .replace(
-        /<img id="chart2" src="data:image\/png;charset=utf-8;base64,[^"]+"/,
-        '<img src="cid:chart2"'
-      ),
-    attachments: [
-      {
-        filename: 'image.png',
-        content: chart1PNG, // this should be the buffer of the PNG image
-        cid: 'chart1', //same cid value as in the html img src
-      },
-      {
-        filename: 'image2.png',
-        content: chart2PNG, // this should be the buffer of the PNG image
-        cid: 'chart2',
-      },
-    ],
-  };
-
-  transporter.sendMail(mailOptions, function (error, info) {
+];
+  
+  const client = new Postmark.ServerClient(process.env.POSTMARK_SERVER_API_TOKEN);
+  client.sendEmail({
+    "From": process.env.POSTMARK_FROM_EMAIL,
+    "To": email,
+    "Subject": "Syneurgy just finished processing a meeting.",
+    "HtmlBody": finalHTML,
+    "Attachments": attachments,
+    "ReplyTo": process.env.POSTMARK_FROM_EMAIL,
+    "TrackOpens": true
+  }, (error, result) => {
     if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
+      console.error("Unable to send via postmark: " + error.message);
+      return;
     }
+    console.log("Sent to postmark for delivery");
   });
 });
 

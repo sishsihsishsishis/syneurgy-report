@@ -148,7 +148,7 @@ async function renderChart(meetingid) {
         );
       }
 
-      const globalScore = scores[0];
+      const globalScore = scores[0].toFixed(1);
       const globalScoreEl = select(window.document).select("#global-score");
       const globalScoreParent = select(globalScoreEl.node().parentNode);
       globalScoreEl.remove();
@@ -271,6 +271,29 @@ async function renderChart(meetingid) {
     }
   }
 
+  if (latestScore.brain_score) {
+    const brain_text = select(window.document).select("#brain-text");
+    const brainTextParent = select(brain_text.node().parentNode);
+    brain_text.remove();
+    brainTextParent.html(
+      `<span id="brain-text">${latestScore.brain_score.toFixed(1)}%</span>`
+    );
+
+    const brain_meter = select(window.document).select("#brain-meter");
+    const brainMeterParent = select(brain_meter.node().parentNode);
+    brain_meter.remove();
+    brainMeterParent.html(
+      `<div
+      id="brain-meter"
+      style="
+        width: ${latestScore.brain_score}%;
+        height: 5px;
+        background-color: #44c9b1;
+      "
+    ></div>`
+    );
+  }
+
   const brainParent = select(brainMeter.node().parentNode);
   brainMeter.remove();
   brainParent.html(
@@ -289,7 +312,7 @@ async function renderChart(meetingid) {
     const bodyTextParent = select(body_text.node().parentNode);
     body_text.remove();
     bodyTextParent.html(
-      `<span id="body-text">${latestScore.body_score}%</span>`
+      `<span id="body-text">${latestScore.body_score.toFixed(1)}%</span>`
     );
 
     const body_meter = select(window.document).select("#body-meter");
@@ -312,7 +335,7 @@ async function renderChart(meetingid) {
     const behaviorTextParent = select(behavior_text.node().parentNode);
     behavior_text.remove();
     behaviorTextParent.html(
-      `<span id="behavior-text">${latestScore.behavior_score}%</span>`
+      `<span id="behavior-text">${latestScore.behavior_score.toFixed(1)}%</span>`
     );
 
     const behavior_meter = select(window.document).select("#behavior-meter");

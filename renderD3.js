@@ -14,8 +14,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const html = fs.readFileSync(path.resolve(__dirname, "./index.html"), "utf8");
 
 async function getData(meetingid) {
+  const backendUrl = process.env.BACKEND_URL;
+  console.log('backendUrl~~~', backendUrl);
+  
   return await fetch(
-    `http://18.144.11.243:8080/csv/radar?meetingID=${meetingid}`
+    `${backendUrl}/csv/radar?meetingID=${meetingid}`
   ).then(async (res) => {
     const data = await res.json();
     return data.data.radar;
@@ -23,8 +26,10 @@ async function getData(meetingid) {
 }
 
 async function getMeetingDetails(meetingId) {
+  const backendUrl = process.env.BACKEND_URL;
+  console.log('backendUrl~~~', backendUrl);
   return await fetch(
-    `http://18.144.11.243:8080/meeting/info/${meetingId}`
+    `${backendUrl}/meeting/info/${meetingId}`
   ).then(async (res) => {
     const data = await res.json();
     return data.data;
@@ -32,8 +37,10 @@ async function getMeetingDetails(meetingId) {
 }
 
 async function getTeamSummary(teamId) {
+  const backendUrl = process.env.BACKEND_URL;
+  console.log('backendUrl~~~', backendUrl);
   return await fetch(
-    `http://18.144.11.243:8080/team/team-summary-paras/${teamId}`
+    `${backendUrl}/team/team-summary-paras/${teamId}`
   ).then(async (res) => {
     const data = await res.json();
     return data.data;
@@ -41,8 +48,10 @@ async function getTeamSummary(teamId) {
 }
 
 async function getLatestScore(teamId) {
+  const backendUrl = process.env.BACKEND_URL;
+  console.log('backendUrl~~~', backendUrl);
   return await fetch(
-    `http://18.144.11.243:8080/csv/latest5score/${teamId}`
+    `${backendUrl}/csv/latest5score/${teamId}`
   ).then(async (res) => {
     const data = await res.json();
     return data.data;
